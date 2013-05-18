@@ -39,7 +39,7 @@ public class ChestManager extends JavaPlugin {
 		try {
 			Statement s = c.createStatement();
 			s.executeUpdate("CREATE TABLE IF NOT EXISTS '" + config.getString("MySQL-table") + "';");
-			s.executeUpdate("INSERT INTO `" + config.getString("MySQL-database") + "`.`" + config.getString("MySQL-database") + "` (`creator`, `worldname`, `coords`, `contents`) VALUES ('', '', '', '');");
+			s.executeUpdate("INSERT INTO `" + config.getString("MySQL-database") + "`.`" + config.getString("MySQL-database") + "` (`creator`, `worldname`, `coords`, `contents`) VALUES ('Placeholder', '', '', '');");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
