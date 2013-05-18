@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -34,6 +35,16 @@ public class ChestManager extends JavaPlugin {
 
 	private void setupMySQL() {
 		c = m.open();
+		
+		try {
+			Statement s = c.createStatement();
+			s.executeUpdate("CREATE TABLE IF NOT EXISTS '" + config.getString("MySQL-table") + "';");
+			s.executeUpdate("INSERT INTO `" + config.getString("MySQL-database") + "`.`" + config.getString("MySQL-database") + "` (`creator`, `worldname`, `coords`, `contents`) VALUES ('', '', '', '');");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	private void setupData() {
