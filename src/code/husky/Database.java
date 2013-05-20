@@ -17,10 +17,10 @@ public abstract class Database
   protected Statements getStatement(String query) {
     String trimmedQuery = query.trim();
     Statements[] allStatements = Statements.values();
-	for(Statement statement : allStatements) {
-		if(trimmedQuery.startsWith(statement.name()))
-			return statement;
-	}
+    for(Statement statement : allStatements) {
+        if(trimmedQuery.startsWith(statement.name()))
+            return statement;
+    }
     return Statements.SELECT;
   }
 
