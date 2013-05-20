@@ -18,7 +18,7 @@ public abstract class Database
     String trimmedQuery = query.trim();
     Statements[] allStatements = Statements.values();
     for(Statement statement : allStatements) {
-        if(trimmedQuery.startsWith(statement.name()))
+        if(trimmedQuery.toUpperCase().startsWith(statement.name()))
             return statement;
     }
     return Statements.SELECT;
